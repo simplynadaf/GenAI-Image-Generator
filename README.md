@@ -44,13 +44,13 @@ For detailed steps, refer to the blog post:
 
 ---
 
-## 🧠 Powered by Titan
+## 🧠 Powered by Amazon Nova
 
-This app uses **Amazon Titan Image Generator G1 v2**, a powerful foundation model that enables:
+This Website uses **Amazon Nova**, a powerful foundation model that enables:
 
 - Text-to-image conversion
-- Reference-guided outputs
-- Background removal and editing
+- Text summerization
+- Text to video creation 
 
 ---
 
@@ -74,4 +74,4 @@ This project is licensed under the MIT-0 License. See the [LICENSE](LICENSE) fil
 ## 🙏 Special Thanks
 
 - [Sarvar Nadaf](https://dev.to/sarvar_04) — for authoring the original tutorial and making AWS magic accessible!
-- AWS Community Builders Program — empowering cloud builders worldwide.
+- AWS Community Builders Program - empowering cloud builders worldwide.
