@@ -2,6 +2,8 @@
 
 This project demonstrates how to build a serverless, AI-powered image generation website using Amazon Bedrock, AWS Lambda, API Gateway, and a static frontend hosted on Amazon S3. It leverages the Amazon Titan Image Generator G1 v2 model to create high-quality images from text prompts.
 
+---
+
 ## 🚀 Features
 
 - Generate images from text prompts using Amazon Bedrock.
@@ -9,31 +11,67 @@ This project demonstrates how to build a serverless, AI-powered image generation
 - Static frontend hosted on Amazon S3.
 - Scalable and cost-effective solution.
 
+---
+
 ## 🏗️ Architecture Overview
 
-The application follows a serverless architecture on AWS:
+The application follows a fully serverless architecture on AWS:
 
-- **Frontend (React)**: Hosted on Amazon S3 with static website hosting enabled.
-- **API Gateway**: Receives HTTP requests from the frontend.
-- **AWS Lambda**: Handles requests from the API Gateway and invokes Amazon Bedrock.
-- **Amazon Bedrock**: Uses the Titan Image Generator G1 v2 model to generate images based on text prompts.
-- **Amazon S3**: Also used to store or serve generated content (optional, if implementing image persistence).
+- **Frontend (React)**: Hosted on Amazon S3 with static website hosting.
+- **API Gateway**: Serves as the entry point for frontend requests.
+- **AWS Lambda**: Processes input and integrates with Amazon Bedrock.
+- **Amazon Bedrock**: Powers image generation using Titan Image Generator G1 v2.
+- **Amazon S3**: Stores and delivers static assets.
 
 ### 📌 Architecture Diagram
 
 ![Final Architecture](Final%20Architecture.png)
 
-## 📚 Prerequisites
+---
 
-- AWS account with access to Amazon Bedrock.
-- AWS CLI configured with appropriate permissions.
-- Node.js and npm installed.
-- Basic knowledge of AWS services.
+## 🧰 Project Setup
 
-## 🛠️ Setup Instructions
+To get started with this project, you'll need to:
 
-### 1. Clone the Repository
+1. Clone the repository and install dependencies for both frontend and backend.
+2. Deploy the backend using AWS SAM or Serverless Framework.
+3. Configure your API endpoint in the frontend app.
+4. Build the frontend and upload it to an S3 bucket with static website hosting enabled.
+5. Open your website via the S3 public URL and start generating images!
 
-```bash
-git clone https://github.com/yourusername/genai-image-generator.git
-cd genai-image-generator
+For detailed steps, refer to the blog post:  
+📖 [Build Your Own Image Generation Website with Amazon Bedrock](https://dev.to/sarvar_04)
+
+---
+
+## 🧠 Powered by Titan
+
+This app uses **Amazon Titan Image Generator G1 v2**, a powerful foundation model that enables:
+
+- Text-to-image conversion
+- Reference-guided outputs
+- Background removal and editing
+
+---
+
+## 🤝 Connect with Me
+
+If you run into any issues or have questions, feel free to reach out — just drop a comment or DM me. I’m always happy to help! 🙌
+
+- 🔗 [Dev.to Profile](https://dev.to/sarvar_04)  
+- 💼 [LinkedIn](https://www.linkedin.com/in/sarvar04/)
+
+Let’s build something amazing together! 🚀
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file for full details.
+
+---
+
+## 🙏 Special Thanks
+
+- [Sarvar Nadaf](https://dev.to/sarvar_04) — for authoring the original tutorial and making AWS magic accessible!
+- AWS Community Builders Program — empowering cloud builders worldwide.
