@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #000, #444);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .header h2 {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 5px 0;
+            color: #ccc;
+        }
+        .shoutout {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffd700;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #888;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #bbb;
+            transform: scale(1.1);
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            transition: 0.3s;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        .loader {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sarvar's Tech</h1>
+        <h2>Architecting the Future of Cloud Solutions</h2>
+        <div class="shoutout">🚀 Big shout out to the <strong>AWS Community Builder Program</strong> for empowering cloud builders around the world! 💪</div>
+    </div>
+    <div class="container">
+        <h3>Generate GenAI Image</h3>
+        <input type="text" id="prompt" placeholder="Enter your prompt...">
+        <select id="model">
+            <option value="amazon_nova">Amazon Nova Canvas</option>
+        </select>
+        <button onclick="generateImage()">Generate</button>
+        <div class="loader" id="loader"></div>
+        <div class="image-container" id="imageContainer"></div>
+    </div>
+
+    <script>
+        async function generateImage() {
+            const prompt = document.getElementById('prompt').value;
+            const model = document.getElementById('model').value;
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+            
+            const loader = document.getElementById('loader');
+            const imageContainer = document.getElementById('imageContainer');
+            loader.style.display = 'block';
+            imageContainer.innerHTML = '';
+            
+            let apiUrl = '';
+            if (model === 'amazon_nova') {
+                apiUrl = `https://qww0kbjqjj.execute-api.us-east-1.amazonaws.com/new/image_generator?prompt=${encodeURIComponent(prompt)}`;
+            }
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const imageUrl = JSON.parse(data.body).replace(/(^"|"$)/g, '');
+                
+                if (imageUrl) {
+                    loader.style.display = 'none';
+                    imageContainer.innerHTML = `
+                        <img src="${imageUrl}" alt="Generated Image">
+                        <br><button onclick="downloadImage('${imageUrl}')">Download</button>
+                    `;
+                } else {
+                    throw new Error('Image URL not found');
+                }
+            } catch (error) {
+                loader.style.display = 'none';
+                imageContainer.innerHTML = `<p style="color: red;">Error generating image. Please try again.</p>`;
+                console.error('Error:', error);
+            }
+        }
+
+        function downloadImage(url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'generated_image.png';
+            a.click();
+        }
+    </script>
+</body>
+</html>
