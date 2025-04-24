@@ -1,3 +1,9 @@
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/simplynadaf/GenAI-Image-Generator.svg)](https://github.com/simplynadaf/GenAI-Image-Generator/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/simplynadaf/GenAI-Image-Generator.svg)](https://github.com/simplynadaf/GenAI-Image-Generator/issues)
+[![GitHub forks](https://img.shields.io/github/forks/simplynadaf/GenAI-Image-Generator.svg)](https://github.com/simplynadaf/GenAI-Image-Generator/network)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/simplynadaf/GenAI-Image-Generator.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20project%20https://github.com/simplynadaf/GenAI-Image-Generator)
+
 # 🖼️ GenAI Image Generation Website with Amazon Bedrock
 
 This project demonstrates how to build a serverless, AI-powered image generation website using Amazon Bedrock, AWS Lambda, API Gateway, and a static frontend hosted on Amazon S3. It leverages the Amazon Titan Image Generator G1 v2 model to create high-quality images from text prompts.
