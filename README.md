@@ -46,7 +46,7 @@ To get started with this project, you'll need to:
 5. Open your website via the S3 public URL and start generating images!
 
 For detailed steps, refer to the blog post:  
-📖 [Build Your Own Image Generation Website with Amazon Bedrock](https://dev.to/sarvar_04)
+📖 [Build Your Own Image Generation Website with Amazon Bedrock]([https://dev.to/sarvar_04](https://dev.to/aws-builders/build-your-own-genai-image-generation-website-with-amazon-nova-548d))
 
 ---
 
